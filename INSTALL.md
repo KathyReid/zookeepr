@@ -24,6 +24,7 @@ Creating a development environment
     ```
 
 2. Create a virtualenv for your ZooKeepr instance.
+
         ```
         \# using only virtualenv
         $ sudo virtualenv env --no-site-packages
@@ -33,7 +34,9 @@ Creating a development environment
         $ sudo mkvirtualenv zookeepr # --no-site-packages is default
         $ workon zookeepr
         ```
+
 3. Configure the virtual environment.
+
         ```
         $ sudo cp zkpylons/config/lca_info.py.sample zkpylons/config/lca_info.py
         $ sudo cp development.ini.sample development.ini
@@ -42,10 +45,12 @@ Creating a development environment
     Edit development.ini to set sqlalchemy.url to match your postgresql database.
     _Note: You must set sqlalchemy.url in both the [app:main] and [alembic] sections_
 
-4. Now, we opulate database. Run alembic to create and populate the initial database.
+4. Now, we populate database. Run alembic to create and populate the initial database.
+
         ```
         $ sudo alembic --config development.ini upgrade head
         ```
+
         WARNING: On a vanilla trunk this does not currently work but there
         is a workaround:
 
@@ -66,18 +71,22 @@ Creating a development environment
 
             To verify the fix, use the alembic history command and check that the
             head revision is "This revision is a lie and should always be head".
-            $ alembic --config development.ini history
+
             ```
+            $ alembic --config development.ini history
             git reset --hard HEAD^
             ```
 
             Now, we verify that the revision is no longer present, using the command;
+
             ```
             $ alembic --config development.ini history
             ```
 
             The phrase 'This revision is a lie' should *no longer* be present.
+
 5. Run the development server.
+
         ```
         pserve --reload development.ini
         ```
