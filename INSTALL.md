@@ -97,4 +97,8 @@ You should now have a development instance of ZooKeepr up and running.
 
 Access it at: [http://0.0.0.0:6543](http://0.0.0.0:6543)
 
+6. The default admin account is:
+* email: admin@zookeepr.org
+* password: password 
+
 *Congratulations*
