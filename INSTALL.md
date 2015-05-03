@@ -87,11 +87,12 @@ Creating a development environment
             The phrase 'This revision is a lie' should *no longer* be present.
 
 5. Run the development server.
+        ```
+        $ pserve --reload development.ini
+        ```
 
-        ```
-        pserve --reload development.ini
-        ```
-        _NOTE: If you are running MythTV, this can conflict, as MythTV also runs on port 6543. You will need to kill or uninstall MythTV to continue._
+        _NOTE: If you are running MythTV, this can conflict, as MythTV also runs on port 6543.
+        You will need to kill or uninstall MythTV to continue._
 
         You should now have a development instance of ZooKeepr up and running.
 
