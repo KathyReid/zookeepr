@@ -24,25 +24,26 @@ Creating a development environment
     ```
 
 2. Create a virtualenv for your ZooKeepr instance.
+      ```
+    \# using only virtualenv
+    $ sudo virtualenv env --no-site-packages
+    $ . ./env/bin/activate
 
-        ```
-        \# using only virtualenv
-        $ sudo virtualenv env --no-site-packages
-        $ . ./env/bin/activate
-
-        \# using virtualenwrapper
-        $ sudo mkvirtualenv zookeepr # --no-site-packages is default
-        $ workon zookeepr
-        ```
+    \# using virtualenwrapper
+    $ sudo mkvirtualenv zookeepr # --no-site-packages is default
+    $ workon zookeepr
+    ```
 
 3. Configure the virtual environment.
 
-        ```
-        $ sudo cp zkpylons/config/lca_info.py.sample zkpylons/config/lca_info.py
-        $ sudo cp development.ini.sample development.ini
-        $ sudo python setup.py develop
-        ```
+    ```
+    $ sudo cp zkpylons/config/lca_info.py.sample zkpylons/config/lca_info.py
+    $ sudo cp development.ini.sample development.ini
+    $ sudo python setup.py develop
+    ```
+
     Edit development.ini to set sqlalchemy.url to match your postgresql database.
+
     _Note: You must set sqlalchemy.url in both the [app:main] and [alembic] sections_
 
 4. Now, we populate database. Run alembic to create and populate the initial database.
@@ -90,15 +91,14 @@ Creating a development environment
         ```
         pserve --reload development.ini
         ```
+        _NOTE: If you are running MythTV, this can conflict, as MythTV also runs on port 6543. You will need to kill or uninstall MythTV to continue._
 
-_NOTE: If you are running MythTV, this can conflict, as MythTV also runs on port 6543. You will need to kill or uninstall MythTV to continue._
+        You should now have a development instance of ZooKeepr up and running.
 
-You should now have a development instance of ZooKeepr up and running.
-
-Access it at: [http://0.0.0.0:6543](http://0.0.0.0:6543)
+        Access it at: [http://0.0.0.0:6543](http://0.0.0.0:6543)
 
 6. The default admin account is:
-* email: admin@zookeepr.org
-* password: password 
+  * email: admin@zookeepr.org
+  * password: password
 
-*Congratulations*
+  *Congratulations*
